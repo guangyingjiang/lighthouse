@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "latitude": 59.16741673897652,
+    "longitude": 18.325249578256365,
+    "zoom": 8.5
+  },
+  "layers": [
+    {
+      "@@type": "IconLayer",
+      "data": [
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.0734131,
+          "lon": 18.2985709
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.0936875,
+          "lon": 18.3490608
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.9629711,
+          "lon": 18.5682658
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.182294,
+          "lon": 18.4922522
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.2235586,
+          "lon": 18.6182758
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.2077557,
+          "lon": 18.565901
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.2178016,
+          "lon": 18.6135129
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3617991,
+          "lon": 18.4522968
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.358584,
+          "lon": 18.4150892
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3714207,
+          "lon": 18.3891683
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3629226,
+          "lon": 18.3763635
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.371713,
+          "lon": 18.3352506
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3776595,
+          "lon": 18.294481
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3808072,
+          "lon": 18.3040082
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3664653,
+          "lon": 18.3105313
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3741179,
+          "lon": 18.2797181
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3656343,
+          "lon": 18.2687318
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3169703,
+          "lon": 18.7472377
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3049249,
+          "lon": 18.7590716
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3718491,
+          "lon": 18.7534175
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3696715,
+          "lon": 18.7446213
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3697915,
+          "lon": 18.6057853
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3840521,
+          "lon": 18.5714369
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.1317014,
+          "lon": 18.4299884
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.128426,
+          "lon": 18.4223451
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.1244125,
+          "lon": 18.4075759
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.1206518,
+          "lon": 18.4264265
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.2964034,
+          "lon": 18.7151269
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.2478587,
+          "lon": 18.6654999
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.1555416,
+          "lon": 18.5546952
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.142995,
+          "lon": 18.4640525
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.1401405,
+          "lon": 18.4390356
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.2867321,
+          "lon": 18.7104698
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.1133937,
+          "lon": 18.4098504
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.1141482,
+          "lon": 18.397126
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.1103886,
+          "lon": 18.367085
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.1066132,
+          "lon": 18.3728788
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3756613,
+          "lon": 18.7151791
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3959409,
+          "lon": 18.3619064
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3954648,
+          "lon": 18.5364822
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3738786,
+          "lon": 18.6142185
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3799381,
+          "lon": 18.6554132
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3763143,
+          "lon": 18.6734587
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3934398,
+          "lon": 18.6073114
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.1338333,
+          "lon": 18.4201333
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3270721,
+          "lon": 18.3892139
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3184289,
+          "lon": 18.408613
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.7301639,
+          "lon": 17.8764771
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.7750031,
+          "lon": 18.0523883
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.7661642,
+          "lon": 17.8491224
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.7787736,
+          "lon": 17.8642541
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.7806422,
+          "lon": 17.8493196
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.73959788426209,
+          "lon": 17.865669890970796
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.8569614,
+          "lon": 18.015065
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.0119345,
+          "lon": 18.2463722
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.0028929,
+          "lon": 18.2579569
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.9782316,
+          "lon": 18.1863258
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.9066752,
+          "lon": 18.082814
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.8973146,
+          "lon": 18.0244386
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.792027,
+          "lon": 17.9454345
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.7938079,
+          "lon": 17.8682023
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.7902783,
+          "lon": 17.8341858
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.8961102,
+          "lon": 17.9594986
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.9180581,
+          "lon": 17.9777762
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.8779498,
+          "lon": 17.928323
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 58.889305,
+          "lon": 17.9468014
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3207673,
+          "lon": 18.1549076
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3639859,
+          "lon": 18.2590061
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3322815,
+          "lon": 18.1764136
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3959502,
+          "lon": 18.1025242
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3345855,
+          "lon": 18.2091557
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3926613,
+          "lon": 18.174988
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3040081,
+          "lon": 17.9325873
+        },
+        {
+          "icon_data": {
+            "anchorY": 200,
+            "height": 200,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Lighthouse_icon.svg",
+            "width": 200
+          },
+          "lat": 59.3034641,
+          "lon": 18.1513264
+        }
+      ],
+      "getIcon": "@@=icon_data",
+      "getPosition": "@@=[lon, lat]",
+      "getSize": 1,
+      "id": "939c0710-f891-4c2c-aa8a-dfa2ae411f72",
+      "pickable": true,
+      "sizeScale": 15
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = true;
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
